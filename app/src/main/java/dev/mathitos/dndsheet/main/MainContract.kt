@@ -8,6 +8,7 @@ interface MainContract {
 
     interface Presenter {
         fun bindView(view: View)
+        fun unbindView()
         fun onMenuButtonClick()
     }
 }

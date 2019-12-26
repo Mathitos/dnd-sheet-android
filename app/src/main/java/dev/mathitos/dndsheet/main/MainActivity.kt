@@ -1,6 +1,7 @@
 package dev.mathitos.dndsheet.main
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
@@ -27,6 +28,11 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         setupMenuButton()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        presenter.unbindView()
+    }
+
     private fun setupMenuButton() {
         val menuButton = findViewById<FloatingActionButton>(R.id.menu_button)
         menuButton.setOnClickListener {
@@ -39,5 +45,9 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         val navView: NavigationView = findViewById(R.id.nav_view)
 
         drawerLayout.openDrawer(navView)
+    }
+
+    fun showText(text: String) {
+        Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
     }
 }

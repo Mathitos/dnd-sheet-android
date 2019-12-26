@@ -7,6 +7,10 @@ class MainPresenter : MainContract.Presenter {
         this.view = view
     }
 
+    override fun unbindView() {
+        this.view = null
+    }
+
     override fun onMenuButtonClick() {
         view?.openDrawer()
     }
