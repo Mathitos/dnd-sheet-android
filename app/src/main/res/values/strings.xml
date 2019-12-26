@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">DnD Sheet</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">DnD Sheets</string>
+    <string name="nav_header_subtitle">your DnD Sheets App</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_sheet">Sheet</string>
+    <string name="menu_setting">Setting</string>
+    <string name="settings">Settings</string>
+</resources>
