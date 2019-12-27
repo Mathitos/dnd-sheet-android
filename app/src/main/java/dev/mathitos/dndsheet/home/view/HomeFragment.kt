@@ -13,6 +13,7 @@ import dev.mathitos.dndsheet.entities.Race
 import dev.mathitos.dndsheet.entities.Sheet
 import dev.mathitos.dndsheet.home.HomeContract
 import dev.mathitos.dndsheet.home.HomePresenter
+import dev.mathitos.dndsheet.main.MainActivity
 
 
 class HomeFragment : Fragment(),
@@ -84,5 +85,9 @@ class HomeFragment : Fragment(),
             it.sheets = newList
             it.notifyDataSetChanged()
         }
+    }
+
+    override fun showText(text: String) {
+        (activity as? MainActivity)?.showText(text)
     }
 }

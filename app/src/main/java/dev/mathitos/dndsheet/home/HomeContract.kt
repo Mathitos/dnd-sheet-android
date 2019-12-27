@@ -5,6 +5,7 @@ import dev.mathitos.dndsheet.entities.Sheet
 interface HomeContract {
     interface View {
         fun updateSheetsList(newList: MutableList<Sheet>)
+        fun showText(text: String)
     }
     interface Presenter{
         fun bindView(view: View)

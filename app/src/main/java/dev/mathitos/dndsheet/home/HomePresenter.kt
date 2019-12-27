@@ -14,15 +14,16 @@ class HomePresenter: HomeContract.Presenter {
     }
 
     override fun onDestroy() {
+        this.interactor?.unbindPresenter()
         this.view = null
         this.interactor = null
     }
 
     override fun handleOnCreateNewSheetClick() {
-
+        this.view?.showText("TODO: create new clicked")
     }
 
     override fun handleOnSheetClicked(index: Int) {
-
+        this.view?.showText("TODO: sheet number $index clicked")
     }
 }
