@@ -19,5 +19,4 @@ class SettingPresenter : SettingContract.Presenter {
     override fun handleLogoutButtonClicked() {
         this.view?.logOut()
     }
-
 }
