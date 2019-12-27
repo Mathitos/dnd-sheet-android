@@ -8,10 +8,6 @@ class HomePresenter: HomeContract.Presenter {
         this.view = view
     }
 
-    override fun unbindView() {
-        this.view = null
-    }
-
     override fun onViewCreated() {
         this.interactor = HomeInteractor()
         interactor?.bindPresenter(this)
@@ -20,5 +16,13 @@ class HomePresenter: HomeContract.Presenter {
     override fun onDestroy() {
         this.view = null
         this.interactor = null
+    }
+
+    override fun handleOnCreateNewSheetClick() {
+
+    }
+
+    override fun handleOnSheetClicked(index: Int) {
+
     }
 }

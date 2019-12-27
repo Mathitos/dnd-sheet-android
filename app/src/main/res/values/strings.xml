@@ -14,4 +14,7 @@
     <string name="log_out">Log Out</string>
     <string name="create_new_sheet">Create New Sheet</string>
     <string name="load_sheet">Load Sheet</string>
+    <string name="_0">0</string>
+    <string name="default_race">Default Race</string>
+    <string name="default_name">Default Name</string>
 </resources>
