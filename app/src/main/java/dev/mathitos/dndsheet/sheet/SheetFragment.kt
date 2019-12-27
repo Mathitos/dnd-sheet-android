@@ -10,22 +10,18 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import dev.mathitos.dndsheet.R
 
-class SheetFragment : Fragment() {
+class SheetFragment : Fragment(), SheetContract.View {
 
-    private lateinit var sheetViewModel: SheetViewModel
+    private var presenter: SheetContract.Presenter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        sheetViewModel =
-            ViewModelProviders.of(this).get(SheetViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_sheet, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gallery)
-        sheetViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
-        return root
+        this.presenter = SheetPresenter()
+        this.presenter?.bindView(this)
+
+        return inflater.inflate(R.layout.fragment_sheet, container, false)
     }
 }

@@ -24,6 +24,6 @@ class HomePresenter: HomeContract.Presenter {
     }
 
     override fun handleOnSheetClicked(index: Int) {
-        this.view?.showText("TODO: sheet number $index clicked")
+        this.view?.showSheetPage()
     }
 }

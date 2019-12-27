@@ -90,4 +90,8 @@ class HomeFragment : Fragment(),
     override fun showText(text: String) {
         (activity as? MainActivity)?.showText(text)
     }
+
+    override fun showSheetPage() {
+        (activity as? MainActivity)?.changePage(R.id.nav_sheet)
+    }
 }

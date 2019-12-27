@@ -50,4 +50,9 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     fun showText(text: String) {
         Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
     }
+
+    fun changePage(index: Int) {
+        val navController = findNavController(R.id.nav_host_fragment)
+        navController.navigate(index)
+    }
 }

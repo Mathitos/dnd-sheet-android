@@ -6,6 +6,7 @@ interface HomeContract {
     interface View {
         fun updateSheetsList(newList: MutableList<Sheet>)
         fun showText(text: String)
+        fun showSheetPage()
     }
     interface Presenter{
         fun bindView(view: View)
