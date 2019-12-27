@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="red">#ed2f21</color>
+    <!-- *************************************
+    Plate from:
+    https://color.adobe.com/Board-game-in-dungeon-color-theme-14025736
+    *************************************  -->
+    <color name="colorPrimary">#F29F05</color>
+    <color name="colorSecondary">#F28705</color>
+    <color name="colorNeutral">#BFA380</color>
+    <color name="colorDark">#BF4A06</color>
+    <color name="colorDarkest">#733122</color>
+
+    <color name="red">#ED2F21</color>
     <color name="white">#FFFFFF</color>
 </resources>

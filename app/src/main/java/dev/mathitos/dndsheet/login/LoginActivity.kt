@@ -81,8 +81,8 @@ class LoginActivity: AppCompatActivity(), LoginContract.View {
     }
 
     override fun onDestroy() {
+        presenter.onDestroy()
         super.onDestroy()
-        presenter.unbindView()
     }
 
     override fun showMessage (text: String){

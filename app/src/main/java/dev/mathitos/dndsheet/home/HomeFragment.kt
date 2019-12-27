@@ -4,28 +4,46 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import dev.mathitos.dndsheet.R
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), HomeContract.View {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private var homePresenter: HomeContract.Presenter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(this, Observer {
-            textView.text = it
-        })
-        return root
+        homePresenter = HomePresenter()
+        homePresenter?.bindView(this)
+
+        return inflater.inflate(R.layout.fragment_home, container, false)
+    }
+
+    override fun onDestroy() {
+        homePresenter?.onDestroy()
+        homePresenter = null
+        super.onDestroy()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        homePresenter?.onViewCreated()
+        initializeButtonClickHandlers()
+    }
+
+    private fun initializeButtonClickHandlers() {
+        val createButton = activity?.findViewById<Button>(R.id.create_new)
+        createButton?.setOnClickListener {
+            homePresenter?.handleOnCreateNewSheetClick()
+        }
+
+        val loadButton = activity?.findViewById<Button>(R.id.load_sheet)
+        loadButton?.setOnClickListener {
+            homePresenter?.handleOnLoadSheetClick()
+        }
     }
 }

@@ -12,7 +12,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dev.mathitos.dndsheet.R
 
 class MainActivity : AppCompatActivity(), MainContract.View {
-    lateinit var presenter: MainContract.Presenter
+    private lateinit var presenter: MainContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     }
 
     override fun onDestroy() {
+        presenter.onDestroy()
         super.onDestroy()
-        presenter.unbindView()
     }
 
     private fun setupMenuButton() {

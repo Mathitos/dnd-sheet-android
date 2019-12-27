@@ -9,7 +9,7 @@ interface LoginContract {
 
     interface Presenter {
         fun bindView(view: View)
-        fun unbindView()
+        fun onDestroy()
         fun onLoginSuccessful()
         fun onLoginFailed()
         fun userLogged()

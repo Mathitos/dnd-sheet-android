@@ -7,7 +7,7 @@ class LoginPresenter: LoginContract.Presenter {
         this.view = view
     }
 
-    override fun unbindView() {
+    override fun onDestroy() {
         this.view = null
     }
 

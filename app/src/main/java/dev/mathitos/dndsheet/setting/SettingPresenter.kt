@@ -7,7 +7,7 @@ class SettingPresenter : SettingContract.Presenter {
         this.view = view
     }
 
-    override fun unbindView() {
+    override fun onDestroy() {
         this.view = null
     }
 

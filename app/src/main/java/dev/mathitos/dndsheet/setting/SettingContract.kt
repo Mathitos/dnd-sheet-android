@@ -9,7 +9,7 @@ interface SettingContract {
 
     interface Presenter {
         fun bindView(view: View)
-        fun unbindView()
+        fun onDestroy()
         fun handleLogOutSucess()
         fun handleLogoutButtonClicked()
     }

@@ -34,8 +34,9 @@ class SettingFragment : Fragment(), SettingContract.View {
     }
 
     override fun onDestroy() {
+        presenter.onDestroy()
         super.onDestroy()
-        presenter.unbindView()
+
     }
 
     override fun logOut() {
