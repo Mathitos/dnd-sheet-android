@@ -6,14 +6,14 @@ interface HomeContract {
     interface View {
         fun updateSheetsList(newList: MutableList<Sheet>)
         fun showText(text: String)
-        fun showSheetPage()
+        fun showSheetPage(sheet: Sheet)
     }
     interface Presenter{
         fun bindView(view: View)
         fun onViewCreated()
         fun onDestroy()
         fun handleOnCreateNewSheetClick()
-        fun handleOnSheetClicked(index: Int)
+        fun handleOnSheetClicked(sheet: Sheet)
     }
     interface Interactor{
         fun fetchUserData()

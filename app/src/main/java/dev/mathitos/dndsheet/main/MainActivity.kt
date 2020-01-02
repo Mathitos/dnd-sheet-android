@@ -7,9 +7,11 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dev.mathitos.dndsheet.R
+import dev.mathitos.dndsheet.entities.Sheet
 
 class MainActivity : AppCompatActivity(), MainContract.View {
     private lateinit var presenter: MainContract.Presenter
@@ -51,8 +53,10 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         Toast.makeText(this@MainActivity, text, Toast.LENGTH_SHORT).show()
     }
 
-    fun changePage(index: Int) {
+    fun showSheetPage(sheet: Sheet) {
         val navController = findNavController(R.id.nav_host_fragment)
-        navController.navigate(index)
+        val bundle = Bundle()
+        bundle.putSerializable("sheet", sheet)
+        navController.navigate(R.id.nav_sheet, bundle)
     }
 }

@@ -1,13 +1,16 @@
 package dev.mathitos.dndsheet.entities
 
-class Sheet(var name: String, var race: Race,var classes: MutableMap<RPGClass, Int>, var str: Int, var dec: Int,var con: Int,var int: Int,var wis: Int,var cha: Int) {
-    val level: Int
+import java.io.Serializable
+
+class Sheet(var name: String, var race: Race,
+            private var classes: MutableMap<RPGClass, Int>, var str: Int, var dec: Int, var con: Int, var int: Int, var wis: Int, var cha: Int): Serializable {
+    val level: String
         get() {
             var totalLevel = 0
             classes.forEach { (_, classLevel) ->
                 totalLevel += classLevel
             }
-            return totalLevel
+            return totalLevel.toString()
         }
 
     fun levelUp(rpgClass : RPGClass){

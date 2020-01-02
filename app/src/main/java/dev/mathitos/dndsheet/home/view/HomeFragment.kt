@@ -65,8 +65,8 @@ class HomeFragment : Fragment(),
             sheetListAdapter = SheetListAdapter(it, mutableListOf(sheet))
             val sheetList = it.findViewById<ListView>(R.id.sheets_listview)
             sheetList?.adapter = sheetListAdapter
-            sheetList?.setOnItemClickListener { _, _, position, _ ->
-                presenter?.handleOnSheetClicked(position)
+            sheetList?.setOnItemClickListener { parent, _, position, _ ->
+                presenter?.handleOnSheetClicked((parent.adapter as SheetListAdapter).sheets[position])
             }
             sheetListAdapter?.notifyDataSetChanged()
         }
@@ -91,7 +91,7 @@ class HomeFragment : Fragment(),
         (activity as? MainActivity)?.showText(text)
     }
 
-    override fun showSheetPage() {
-        (activity as? MainActivity)?.changePage(R.id.nav_sheet)
+    override fun showSheetPage(sheet: Sheet) {
+        (activity as? MainActivity)?.showSheetPage(sheet)
     }
 }

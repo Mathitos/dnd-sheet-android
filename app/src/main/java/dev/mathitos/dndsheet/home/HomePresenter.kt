@@ -1,5 +1,7 @@
 package dev.mathitos.dndsheet.home
 
+import dev.mathitos.dndsheet.entities.Sheet
+
 class HomePresenter: HomeContract.Presenter {
     private var view: HomeContract.View? = null
     private var interactor: HomeContract.Interactor? = null
@@ -23,7 +25,7 @@ class HomePresenter: HomeContract.Presenter {
         this.view?.showText("TODO: create new clicked")
     }
 
-    override fun handleOnSheetClicked(index: Int) {
-        this.view?.showSheetPage()
+    override fun handleOnSheetClicked(sheet: Sheet) {
+        this.view?.showSheetPage(sheet)
     }
 }
